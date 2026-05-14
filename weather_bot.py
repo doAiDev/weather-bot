@@ -63,6 +63,7 @@ def send_telegram(message, chat_id):
         "parse_mode": "HTML",
     }
     response = requests.post(url, json=payload, timeout=10)
+    print(f"Telegram response: {response.status_code} {response.text}")
     response.raise_for_status()
 
 def main():
