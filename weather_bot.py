@@ -1,6 +1,9 @@
 import os
 import requests
 from datetime import datetime
+from zoneinfo import ZoneInfo
+
+KST = ZoneInfo("Asia/Seoul")
 
 BOT_TOKEN = os.environ['TELEGRAM_BOT_TOKEN']
 CHAT_IDS = os.environ['TELEGRAM_CHAT_IDS'].split(',')
@@ -67,7 +70,7 @@ def send_telegram(message, chat_id):
     response.raise_for_status()
 
 def main():
-    today = datetime.now().strftime("%Y년 %m월 %d일 (%a)")
+    today = datetime.now(KST).strftime("%Y년 %m월 %d일 (%a)")
     # 요일 한글 변환
     weekday_map = {"Mon": "월", "Tue": "화", "Wed": "수", "Thu": "목",
                    "Fri": "금", "Sat": "토", "Sun": "일"}
