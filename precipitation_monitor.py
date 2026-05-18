@@ -63,7 +63,8 @@ def main():
                 direction = f"올랐어요 ⬆️ ({prev_prob}% → {current_prob}%)"
             else:
                 direction = f"내렸어요 ⬇️ ({prev_prob}% → {current_prob}%)"
-            changes.append(f"📍 <b>{loc['name']}</b> 강수확률이 {direction}")
+            umbrella = " ☂️ <b>우산필참</b>" if current_prob >= 60 else ""
+            changes.append(f"📍 <b>{loc['name']}</b>{umbrella} 강수확률이 {direction}")
 
         state[loc["name"]] = current_prob
 

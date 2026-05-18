@@ -90,7 +90,8 @@ def main():
         rain_prob = daily["precipitation_probability_max"][0]
         code = daily["weathercode"][0]
 
-        message += f"📍 <b>{loc['name']}</b>\n"
+        umbrella = " ☂️ <b>우산필참</b>" if rain_prob >= 60 else ""
+        message += f"📍 <b>{loc['name']}</b>{umbrella}\n"
         message += f"   {weather_code_to_text(code)}\n"
         message += f"   🌡️ 최고 {temp_max}°C / 최저 {temp_min}°C\n"
         message += f"   🌂 강수확률 {rain_prob}% / 강수량 {precipitation}mm\n\n"
